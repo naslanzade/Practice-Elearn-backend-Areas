@@ -1,0 +1,81 @@
+﻿@model CourseDetailVM
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<style>
+     body {
+        background-color: #F4F5F7;
+    }
+
+</style>
+
+<div class="col-lg-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Course Detail Table</h4>
+            <div class="table-responsive pt-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Created Date
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Author
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                SaleCount
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="~/images/@Model.Images?.Where(m=>m.IsMain).FirstOrDefault()?.Image" alt="image" style="with:70px;height:50px;border-radius:0%" />
+                            </td>
+                            <td>
+                                @Model.CreatedDate
+                            </td>
+                            <td>
+                                @Model.Title
+                            </td>
+                            <td>
+                                @Model.Description
+                            </td>
+                            <td>
+                                @Model.Author.FullName
+                            </td>
+                            <td>
+                                @Model.Price
+                            </td>
+                            <td>
+                                @Model.SaleCount
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <br></br>
+            <a asp-action="Index" class="btn btn-outline-info btn-fw">Back</a>
+        </div>
+    </div>
+
+</div>
+
+

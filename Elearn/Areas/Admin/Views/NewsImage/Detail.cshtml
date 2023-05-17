@@ -1,0 +1,80 @@
+﻿@model NewImageDetailVM
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<style>
+
+    .status-news {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .status-true {
+        background-color: greenyellow;
+    }
+
+    .status-false {
+        background-color: orangered;
+    }
+
+    body {
+        background-color: #F4F5F7;
+    }
+
+</style>
+
+<div class="col-lg-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">News Image Detail Table</h4>
+            <div class="table-responsive pt-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Created Date
+                            </th>
+                            <th>
+                                Course Title
+                            </th>
+                            <th>
+                                Is Main
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="~/images/@Model.Image" alt="image" style="with:70px;height:50px;border-radius:0%" />
+                            </td>
+                            <td>
+                                @Model.CreatedDate
+                            </td>
+                            <td>
+                                @Model.News.Title
+                            </td>
+                            <td>
+                                <div class="status-news @(Model.IsMain ? "status-true":"status-false")"></div>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <br></br>
+            <a asp-action="Index" class="btn btn-outline-info btn-fw">Back</a>
+        </div>
+    </div>
+
+</div>
+
+
